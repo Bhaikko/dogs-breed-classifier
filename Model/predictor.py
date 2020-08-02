@@ -5,7 +5,7 @@ from tensorflow import keras
 from keras.preprocessing import image
 
 # Loading Model from existing binary file
-model = keras.models.load_model('model')
+model = keras.models.load_model('./Model/model')
 
 def process_classes_from_json(filepath):
     dog_classes_dict = {}
@@ -39,7 +39,7 @@ def predict_image(image_path, dog_classes_list):
     print(maxProb, dog_classes_list[maxIndex])
 
 
-dogs_classes_list = process_classes_from_json('dog_classes.json')
+dogs_classes_list = process_classes_from_json('./Model/dog_classes.json')
 
 image_path = sys.argv[1]
 
