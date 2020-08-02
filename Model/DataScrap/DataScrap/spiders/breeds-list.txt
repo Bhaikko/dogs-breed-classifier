@@ -11,7 +11,7 @@ english-springer-spaniel
 cocker-spaniel
 shetland-sheepdog
 rottweiler
-german-shepard-dog
+german-shepherd-dog
 doberman-pinscher
 bernese-mountain-dog
 boxer
