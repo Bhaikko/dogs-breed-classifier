@@ -1,11 +1,13 @@
-const { exec } = require("child_process")
+const express = require('express');
 
-filename = "1.jpg"
-exec(`python3 ./Model/predictor.py ./../data/single_prediction/${filename}`, (error, stdout, stderr) => {
-    if (error) {
-        console.log(`Error: ${error}`);
-    } 
+const app = express();
 
-    let prediction = stdout;
-    console.log(prediction);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static("./public"))
+
+const PORT = 4000;
+app.listen(PORT, () => {
+    console.log(`Server Up and Running at http://127.0.0.1:${PORT}`);
 });
