@@ -50,9 +50,7 @@ class DogBreedScrap(scrapy.Spider):
 
         characteristics_dic['vitalStats'] = vital_stats_dic
 
-        # print(json.dumps(characteristics_dic))
-
-        filename = './../{}.json'.format(response.meta.get('current_breed'))
+        filename = './../../data/metadata/{}.json'.format(response.meta.get('current_breed'))
         with open(filename, 'w+') as f:
             f.write(json.dumps(characteristics_dic))
 
