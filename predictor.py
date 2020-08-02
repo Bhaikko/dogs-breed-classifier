@@ -1,4 +1,5 @@
 import numpy as np 
+import sys 
 import json
 from tensorflow import keras
 from keras.preprocessing import image
@@ -40,4 +41,9 @@ def predict_image(image_path, dog_classes_list):
 
 dogs_classes_list = process_classes_from_json('dog_classes.json')
 
-predict_image('./backup/data/single_prediction/4.jpg', dogs_classes_list)
+image_path = sys.argv[1]
+
+if image_path != "":
+    predict_image(image_path, dogs_classes_list)
+else:
+    print('[+] File not found.')
