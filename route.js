@@ -15,7 +15,7 @@ const processOutput = prediction => {
     return prediction;
 }
 
-module.exports.predict = (filename, res) => {
+module.exports.predict = (filename, res, path) => {
     return exec(`python3 ./Model/predictor.py ./../uploads/${filename}`, (error, stdout, stderr) => {
         if (error) {
             console.log(`Error: ${error}`);
@@ -31,7 +31,8 @@ module.exports.predict = (filename, res) => {
 
         res.status(200).json({
             dogName: prediction,
-            details: details
+            details: details,
+            path: path
         });
     });
 }

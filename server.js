@@ -18,7 +18,7 @@ const upload = multer({
 app.post('/predict', upload.single('dogPhoto'), (req, res) => {
     if (req.file) {
         let filename = req.file.filename; 
-        predict(filename, res);
+        predict(filename, res, req.file.path);
 
     } else {
         res.status(400).json({
@@ -28,6 +28,7 @@ app.post('/predict', upload.single('dogPhoto'), (req, res) => {
     
 });
 
+app.use('/uploads', express.static('./uploads'));
 app.use(express.static("./public"));
 
 const PORT = 4000;
