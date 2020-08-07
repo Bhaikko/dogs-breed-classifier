@@ -6,6 +6,7 @@ from keras.preprocessing import image
 
 # Loading Model from existing binary file
 model = keras.models.load_model('./Model/model')
+# model = keras.models.load_model('./model')
 
 def process_classes_from_json(filepath):
     dog_classes_dict = {}
@@ -22,7 +23,8 @@ def process_classes_from_json(filepath):
 
 def predict_image(image_path, dog_classes_list):
     # Loads image in PIL format
-    test_image = image.load_img('./backup/data/single_prediction/4.jpg', target_size = (128, 128))
+    # test_image = image.load_img('./backup/data/single_prediction/4.jpg', target_size = (64, 64))
+    test_image = image.load_img(image_path, target_size = (64, 64))
     test_image = image.img_to_array(test_image) / 255.      
     test_image = np.expand_dims(test_image, axis = 0)        
     result = model.predict_proba(test_image)
@@ -40,6 +42,7 @@ def predict_image(image_path, dog_classes_list):
 
 
 dogs_classes_list = process_classes_from_json('./Model/dog_classes.json')
+# dogs_classes_list = process_classes_from_json('./dog_classes.json')
 
 image_path = sys.argv[1]
 

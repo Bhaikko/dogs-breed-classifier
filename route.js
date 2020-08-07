@@ -11,12 +11,13 @@ const processOutput = prediction => {
     prediction.shift();
 
     prediction = prediction.join('-');
+    prediction = prediction.toLowerCase();
     
     return prediction;
 }
 
 module.exports.predict = (filename, res, path) => {
-    return exec(`python3 ./Model/predictor.py ./../uploads/${filename}`, (error, stdout, stderr) => {
+    return exec(`python3 ./Model/predictor.py ./uploads/${filename}`, (error, stdout, stderr) => {
         if (error) {
             console.log(`Error: ${error}`);
         } 
@@ -27,7 +28,7 @@ module.exports.predict = (filename, res, path) => {
         predictionFileName = FILE_MAPPINGS[prediction];
 
         
-        let details = JSON.parse(fs.readFileSync(`./data/metadata/${prediction}.json`, 'utf8'));
+        let details = JSON.parse(fs.readFileSync(`./data/metadata/${predictionFileName}.json`, 'utf8'));
 
         res.status(200).json({
             dogName: prediction,
