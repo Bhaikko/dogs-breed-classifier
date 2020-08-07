@@ -1,10 +1,12 @@
 const express = require('express');
 const multer = require("multer");
+const cors = require('cors');
 
 const app = express();
 
 const { predict } = require("./route");
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,6 +25,7 @@ app.post('/predict', upload.single('dogPhoto'), (req, res) => {
             message: "Something went wrong"
         });
     }
+    
 });
 
 app.use(express.static("./public"));
