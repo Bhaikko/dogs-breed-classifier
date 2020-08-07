@@ -1,9 +1,9 @@
 // This fil contains Mapping of Different breeds predicted by Python model and Json file corresponding to it
 
-const FILE_MAPPINGS = {
+module.exports.FILE_MAPPINGS = {
 //  "python_prediction": "file_name"
-    "chihuahua": "chihuahua.json",
-    "shih-tzu": "shih-tzu.json",
+    "chihuahua": "chihuahua",
+    "shih-tzu": "shih-tzu",
     "beagle": "beagle",
     "yorkshire_terrier": "yorkshire-terrier",
     "miniature_schnauzer": "miniature-schnauzer",

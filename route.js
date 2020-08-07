@@ -1,5 +1,7 @@
 const { exec } = require("child_process");
+const { FILE_MAPPINGS } = require('./file_mapping');
 const fs = require('fs');
+const { FILE } = require("dns");
 
 const processOutput = prediction => {
     prediction = prediction.split(" ")[1];
@@ -22,6 +24,8 @@ module.exports.predict = (filename, res) => {
         let prediction = stdout;
         
         prediction = processOutput(prediction);
+        predictionFileName = FILE_MAPPINGS[prediction];
+
         
         let details = JSON.parse(fs.readFileSync(`./data/metadata/${prediction}.json`, 'utf8'));
 
