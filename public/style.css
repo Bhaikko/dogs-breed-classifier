@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+#dog-image-empty {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 500px;
+    height: 500px;
+    background-color: #EEEEEE;
+}
+
+#dog-name {
+    width: 80%;
+    font-size: 40px;
+
+}
+
+.header {
+    margin-top: 50px;
+    font-size: 32px;
+    text-align: left;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#dog-details {
+    width: 80%;
+}
+
+.breed-characteristics-table {
+    margin-top: 25px;
+    width: 80%;
+}
+
+.breed-characteristics-block {
+    margin-top: 20px;
+}
+
+.breed-characteristics-block-header {
+    font-size: 26px;
+}
+
+.breed-characteristics-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.breed-characteristics-row-key {
+    width: 50%;
+    letter-spacing: 2px;
+}
+
+.breed-characteristics-row-value {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;    
+}
+
+.star {
+    margin: 2px;
+    width: 24px;
+}
+
+.vital-stats {
+    margin-top: 5px;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.vital-stat-block {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.vital-stat-header {
+    font-size: 20px;
+    color: red;
+}
+
+.temp {
+    height: 100vh;
+    width: 80%;
+}
